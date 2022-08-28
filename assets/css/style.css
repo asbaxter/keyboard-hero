@@ -1,0 +1,45 @@
+body{
+    display: flex;
+   justify-content: center;
+    
+}
+h1{
+    text-align: center;
+
+}
+#game{
+    height: 700px;
+    width: 500px;
+    border: solid black 3px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+
+}
+button{
+    height: 100px;
+    width: 100px;
+    margin-top: 575px;
+    border-radius: 50%;
+}
+#btn1{
+    background-color: green;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#btn2{
+    background-color: red;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#btn3{
+    background-color: yellow;
+    font-size: xx-large;
+    font-weight: bold;
+
+}
+#btn4{
+    background-color: blue;
+    font-size: xx-large;
+    font-weight: bold;
+}
