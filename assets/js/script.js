@@ -12,20 +12,24 @@ let btnHit = 0;
 
 
 // event listeners for click and keypress so player can use either controls
-btn1.addEventListener("click", (event)=> {
+btn1.addEventListener("mousedown", (event)=> {
     btnHit = 1;
+    buttonPressed(btnHit);
 })
 
-btn2.addEventListener("click", (event)=> {
+btn2.addEventListener("mousedown", (event)=> {
     btnHit = 2;
+    buttonPressed(btnHit);
 })
 
-btn3.addEventListener("click", (event)=> {
+btn3.addEventListener("mousedown", (event)=> {
     btnHit = 3;
+    buttonPressed(btnHit);
 })
 
-btn4.addEventListener("click", (event)=> {
+btn4.addEventListener("mousedown", (event)=> {
     btnHit = 4;
+    buttonPressed(btnHit);
 })
 
 document.addEventListener("keydown", (event => {
@@ -33,20 +37,55 @@ document.addEventListener("keydown", (event => {
 
     if(keyPressed == 1){
         btnHit = 1;
+        buttonPressed(btnHit);
     }
     else if(keyPressed == 2){
         btnHit = 2;
+        buttonPressed(btnHit);
     }
     else if(keyPressed == 3){
         btnHit = 3;
+        buttonPressed(btnHit);
     }
     else if(keyPressed == 4){
         btnHit = 4;
+        buttonPressed(btnHit);
     }
     else {
         return;
     }
 }))
+
+document.addEventListener("keyup", (event => {
+    btn1.removeAttribute("class", "pressed")
+    btn2.removeAttribute("class", "pressed")
+    btn3.removeAttribute("class", "pressed")
+    btn4.removeAttribute("class", "pressed")
+}))
+
+document.addEventListener("mouseup", (event => {
+    btn1.removeAttribute("class", "pressed")
+    btn2.removeAttribute("class", "pressed")
+    btn3.removeAttribute("class", "pressed")
+    btn4.removeAttribute("class", "pressed")
+}))
+
+function buttonPressed(btnHit){
+     
+    if(btnHit == 1){
+        btn1.setAttribute("class", "pressed")
+    }
+    else if(btnHit == 2){
+        btn2.setAttribute("class", "pressed")
+    }
+    else if(btnHit == 3){
+        btn3.setAttribute("class", "pressed")
+    }
+    else{
+        btn4.setAttribute("class", "pressed")
+    }
+    return;
+}
 
 // create different color notes and remove after timeout
 function greenNote(){
@@ -192,5 +231,4 @@ function checkHit(noteTop){
 
 pickNote();
 
-console.log(btnXY.top);
 
