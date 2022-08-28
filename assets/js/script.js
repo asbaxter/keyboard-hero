@@ -6,6 +6,8 @@ const btn4 = document.getElementById("btn4");
 const note = '';
 
 let btnXY = btn1.getBoundingClientRect();
+let allNotes = [];
+let noteInterval = 0;
 let btnHit = 0;
 
 
@@ -52,6 +54,8 @@ function greenNote(){
     note.setAttribute("id", "greenNote");
     game.appendChild(note);
 
+    allNotes.push(1);
+
     // checks position of note
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -69,6 +73,8 @@ function redNote(){
     const note = document.createElement("div");
     note.setAttribute("id", "redNote");
     game.appendChild(note);
+
+    allNotes.push(2);
 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -88,6 +94,8 @@ function yellowNote(){
     note.setAttribute("id", "yellowNote");
     game.appendChild(note);
 
+    allNotes.push(3);
+
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
         noteTop = noteXY.top;
@@ -105,6 +113,8 @@ function blueNote(){
     const note = document.createElement("div");
     note.setAttribute("id", "blueNote");
     game.appendChild(note);
+
+    allNotes.push(4);
 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -149,24 +159,24 @@ function pickNote() {
 
 function checkHit(noteTop){
 
-    if (btnHit == 1 && noteTop >= 550){
-        console.log("hit")
-        console.log(noteTop)
+    if (btnHit == 1 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+        console.log("Green hit")
+        noteInterval++;
         btnHit = 0;
     }
-    else if (btnHit == 2 && noteTop >= 550){
-        console.log("hit")
-        console.log(noteTop)
+    else if (btnHit == 2 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+        console.log("Red hit")
+        noteInterval++;
         btnHit = 0;
     }
-    else if (btnHit == 3 && noteTop >= 550){
-        console.log("hit")
-        console.log(noteTop)
+    else if (btnHit == 3 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+        console.log("Yellow hit")
+        noteInterval++;
         btnHit = 0;
     }
-    else if (btnHit == 4 && noteTop >= 550){
-        console.log("hit")
-        console.log(noteTop)
+    else if (btnHit == 4 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+        console.log("Blue hit")
+        noteInterval++;
         btnHit = 0;
     }
     else if (btnHit != 0){1
