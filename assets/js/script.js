@@ -1,3 +1,4 @@
+const game = document.getElementById("game");
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
@@ -40,4 +41,46 @@ document.addEventListener("keydown", (event => {
         return;
     }
 }))
+
+function greenNote(){
+    const note = document.createElement("div");
+
+    note.setAttribute("id", "greenNote");
+
+    game.appendChild(note);
+}
+
+function redNote(){
+    const note = document.createElement("div");
+
+    note.setAttribute("id", "redNote");
+
+    game.appendChild(note);
+
+
+}
+function yellowNote(){
+    const note = document.createElement("div");
+
+    note.setAttribute("id", "yellowNote");
+
+    game.appendChild(note);
+
+
+}
+function blueNote(){
+    const note = document.createElement("div");
+
+    note.setAttribute("id", "blueNote");
+
+    game.appendChild(note);
+
+
+}
+
+
+greenNote();
+redNote();
+yellowNote();
+blueNote();
 

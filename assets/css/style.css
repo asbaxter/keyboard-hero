@@ -3,10 +3,9 @@ body{
    justify-content: center;
     
 }
-h1{
-    text-align: center;
 
-}
+/** -------------------- Game Window --------------------- **/
+
 #game{
     height: 700px;
     width: 500px;
@@ -16,6 +15,7 @@ h1{
     position: relative;
 
 }
+/** -------------------- User Buttons --------------------- **/
 button{
     height: 100px;
     width: 100px;
@@ -42,4 +42,43 @@ button{
     background-color: blue;
     font-size: xx-large;
     font-weight: bold;
+}
+
+/** ------------------------- Notes --------------------------- **/
+
+#greenNote{
+    border: black solid 3px;
+    position: absolute;
+    margin-right: 375px;
+    height: 75px;
+    width: 75px;
+    background-color: lightgreen;
+    border-radius: 50%;
+}
+#redNote{
+    border: black solid 3px;
+    position: absolute;
+    margin-right: 125px;
+    height: 75px;
+    width: 75px;
+    background-color: pink;
+    border-radius: 50%;
+}
+#yellowNote{
+    border: black solid 3px;
+    position: absolute;
+    margin-left: 125px;
+    height: 75px;
+    width: 75px;
+    background-color: lightyellow;
+    border-radius: 50%;
+}
+#blueNote{
+    border: black solid 3px;
+    position: absolute;
+    margin-left: 375px;
+    height: 75px;
+    width: 75px;
+    background-color: lightblue;
+    border-radius: 50%;
 }
