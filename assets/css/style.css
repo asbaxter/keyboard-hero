@@ -44,7 +44,7 @@ button{
     font-weight: bold;
 }
 
-/** ------------------------- Notes --------------------------- **/
+/** ------------------------ Notes -------------------------- **/
 
 #greenNote{
     border: black solid 3px;
@@ -54,6 +54,7 @@ button{
     width: 75px;
     background-color: lightgreen;
     border-radius: 50%;
+    animation: note 2s;
 }
 #redNote{
     border: black solid 3px;
@@ -63,6 +64,7 @@ button{
     width: 75px;
     background-color: pink;
     border-radius: 50%;
+    animation: note 2s;
 }
 #yellowNote{
     border: black solid 3px;
@@ -72,6 +74,7 @@ button{
     width: 75px;
     background-color: lightyellow;
     border-radius: 50%;
+    animation: note 2s;
 }
 #blueNote{
     border: black solid 3px;
@@ -81,4 +84,11 @@ button{
     width: 75px;
     background-color: lightblue;
     border-radius: 50%;
+    animation: note 2s;
+}
+
+/** ------------------ Notes Animations --------------------- **/
+@keyframes note{
+    0%{top: 0px;}
+    100%{top: 700px;}
 }
