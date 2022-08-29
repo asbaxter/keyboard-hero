@@ -74,7 +74,7 @@ document.addEventListener("mouseup", (event => {
 function buttonPressed(btnHit){
      
     if(btnHit == 1){
-        btn1.setAttribute("class", "pressed")
+        btn1.setAttribute("class", "pressed");
     }
     else if(btnHit == 2){
         btn2.setAttribute("class", "pressed")
@@ -94,17 +94,10 @@ function greenNote(){
     note.setAttribute("id", "greenNote");
     game.appendChild(note);
 
-
-    // checks position of note
-    let checkNotePosition = setInterval(function(){
-        var noteXY = note.getBoundingClientRect();
-        noteTop = noteXY.top;
-        checkHit(noteTop);
-    },10);
+    checkHit(note);
 
     setTimeout(function(){
         game.removeChild(note);
-        clearInterval(checkNotePosition);
     },1300);
 }
 
@@ -113,16 +106,10 @@ function redNote(){
     note.setAttribute("id", "redNote");
     game.appendChild(note);
 
-
-    let checkNotePosition = setInterval(function(){
-        var noteXY = note.getBoundingClientRect();
-        noteTop = noteXY.top;
-        checkHit(noteTop);
-    },10);
+    checkHit(note);
 
     setTimeout(function(){
         game.removeChild(note);
-        clearInterval(checkNotePosition);
     },1300);
 
 
@@ -132,16 +119,10 @@ function yellowNote(){
     note.setAttribute("id", "yellowNote");
     game.appendChild(note);
 
-
-    let checkNotePosition = setInterval(function(){
-        var noteXY = note.getBoundingClientRect();
-        noteTop = noteXY.top;
-        checkHit(noteTop);
-    },10);
+    checkHit(note);
   
     setTimeout(function(){
         game.removeChild(note);
-        clearInterval(checkNotePosition);
     },1300);
 
 }
@@ -151,16 +132,10 @@ function blueNote(){
     note.setAttribute("id", "blueNote");
     game.appendChild(note);
 
-
-    let checkNotePosition = setInterval(function(){
-        var noteXY = note.getBoundingClientRect();
-        noteTop = noteXY.top;
-        checkHit(noteTop);
-    },10);
+    checkHit(note);
 
     setTimeout(function(){
         game.removeChild(note);
-        clearInterval(checkNotePosition);
     },1300);
 }
 
@@ -193,39 +168,46 @@ function pickNote() {
 }());
 }
 
-function checkHit(noteTop){
+function checkHit(note){
 
-    if (btnHit == 1 && noteTop >= 540){
-        score = score + 10;
+    let checkNotePosition = setInterval(function(){
+        var noteXY = note.getBoundingClientRect();
+        noteTop = noteXY.top;
+
+        if (btnHit == 1 && noteTop >= 540){
+            console.log(noteTop)
+            score = score + 10;
+            displayScore();
+        }
+        else if (btnHit == 2 && noteTop >= 540){
+            console.log(noteTop)
+            score = score + 10;
+            displayScore();
+        }
+        else if (btnHit == 3 && noteTop >= 540){
+            console.log(noteTop)
+            score = score + 10;
+            displayScore();
+        }
+        else if (btnHit == 4 && noteTop >= 540){
+            console.log(noteTop)
+            score = score + 10;
+            displayScore();
+        }
+        else if (btnHit != 0 && noteTop < 540){
+            score = score - 5;
+            missNote.play();
+            displayScore();
+        }
+        else{
+            return;
+        }
         btnHit = 0;
-        displayScore();
-    }
-    else if (btnHit == 2 && noteTop >= 540){
-        score = score + 10;
-        btnHit = 0;
-        displayScore();
-    }
-    else if (btnHit == 3 && noteTop >= 540){
-        score = score + 10;
-        btnHit = 0;
-        displayScore();
-    }
-    else if (btnHit == 4 && noteTop >= 540){
-        score = score + 10;
-        btnHit = 0;
-        displayScore();
-    }
-    else if (btnHit != 0){
-        console.log(noteTop);
-        console.log(btnHit);
-        score = score - 5;
-        btnHit = 0;
-        missNote.play();
-        displayScore();
-    }
-    else{
-        return btnHit = 0;
-    }
+    },10);
+
+    setTimeout(function(){
+        clearInterval(checkNotePosition);
+    },1400);
 }
 
 function displayScore(){
