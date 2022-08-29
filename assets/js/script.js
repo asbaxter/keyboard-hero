@@ -5,10 +5,10 @@ const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 const scoreEl = document.getElementById("score");
 const missNote = document.getElementById("missNote");
+const penguinTrack = document.getElementById("penguinTrack");
 const note = '';
 
 let btnXY = btn1.getBoundingClientRect();
-let allNotes = [];
 let btnHit = 0;
 let score = 0;
 
@@ -38,8 +38,6 @@ document.addEventListener("keydown", (event => {
 
     if(keyPressed == 1){
         btnHit = 1;
-        let missAudio = new Audio("../audio/missed-note.mp3");
-        missAudio.play();
         buttonPressed(btnHit);
     }
     else if(keyPressed == 2){
@@ -96,7 +94,6 @@ function greenNote(){
     note.setAttribute("id", "greenNote");
     game.appendChild(note);
 
-    allNotes.push(1);
 
     // checks position of note
     let checkNotePosition = setInterval(function(){
@@ -116,7 +113,6 @@ function redNote(){
     note.setAttribute("id", "redNote");
     game.appendChild(note);
 
-    allNotes.push(2);
 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -136,7 +132,6 @@ function yellowNote(){
     note.setAttribute("id", "yellowNote");
     game.appendChild(note);
 
-    allNotes.push(3);
 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -156,7 +151,6 @@ function blueNote(){
     note.setAttribute("id", "blueNote");
     game.appendChild(note);
 
-    allNotes.push(4);
 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
@@ -173,7 +167,7 @@ function blueNote(){
 function pickNote() {
 
 (function loop() {
-    var rand = Math.round(Math.random() * (1000 - 100)) + 1000;
+
     setTimeout(function() {
         
         let randNote = Math.floor(Math.random() * 4) + 1;
@@ -194,30 +188,30 @@ function pickNote() {
             blueNote();
             loop();
         }
-
-    }, rand);
+1
+    }, 475);
 }());
 }
 
 function checkHit(noteTop){
     let lastNote = allNotes[allNotes.length - 1];
 
-    if (btnHit == 1 && noteTop >= 540 && btnHit == lastNote){
+    if (btnHit == 1 && noteTop >= 300){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 2 && noteTop >= 540 && btnHit == lastNote){
+    else if (btnHit == 2 && noteTop >= 300){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 3 && noteTop >= 540 && btnHit == lastNote){
+    else if (btnHit == 3 && noteTop >= 300){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 4 && noteTop >= 540 && btnHit == lastNote){
+    else if (btnHit == 4 && noteTop >= 300){
         score = score + 10;
         btnHit = 0;
         displayScore();
@@ -226,6 +220,7 @@ function checkHit(noteTop){
         score = score - 5;
         btnHit = 0;
         missNote.play();
+        console.log(noteTop);
         displayScore();
     }
     else{
@@ -237,8 +232,16 @@ function displayScore(){
     return scoreEl.textContent = "Score: " + score;
 }
 
+function init(){
+    document.addEventListener("click", (event)=> {
+        penguinTrack.play();
+        displayScore();
+        pickNote();
+    })
 
-displayScore();
-pickNote();
+}
+
+init();
+
 
 
