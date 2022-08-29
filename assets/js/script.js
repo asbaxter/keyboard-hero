@@ -4,6 +4,7 @@ const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 const scoreEl = document.getElementById("score");
+const missNote = document.getElementById("missNote");
 const note = '';
 
 let btnXY = btn1.getBoundingClientRect();
@@ -37,6 +38,8 @@ document.addEventListener("keydown", (event => {
 
     if(keyPressed == 1){
         btnHit = 1;
+        let missAudio = new Audio("../audio/missed-note.mp3");
+        missAudio.play();
         buttonPressed(btnHit);
     }
     else if(keyPressed == 2){
@@ -222,6 +225,7 @@ function checkHit(noteTop){
     else if (btnHit != 0){1
         score = score - 5;
         btnHit = 0;
+        missNote.play();
         displayScore();
     }
     else{
@@ -232,6 +236,7 @@ function checkHit(noteTop){
 function displayScore(){
     return scoreEl.textContent = "Score: " + score;
 }
+
 
 displayScore();
 pickNote();
