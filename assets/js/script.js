@@ -194,7 +194,6 @@ function pickNote() {
 }
 
 function checkHit(noteTop){
-    let lastNote = allNotes[allNotes.length - 1];
 
     if (btnHit == 1 && noteTop >= 300){
         score = score + 10;
