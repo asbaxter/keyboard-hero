@@ -13,44 +13,25 @@ let btnHit = 0;
 let score = 0;
 
 // event listeners for click and keypress so player can use either controls
-btn1.addEventListener("mousedown", (event)=> {
-    btnHit = 1;
-    buttonPressed(btnHit);
-})
-
-btn2.addEventListener("mousedown", (event)=> {
-    btnHit = 2;
-    buttonPressed(btnHit);
-})
-
-btn3.addEventListener("mousedown", (event)=> {
-    btnHit = 3;
-    buttonPressed(btnHit);
-})
-
-btn4.addEventListener("mousedown", (event)=> {
-    btnHit = 4;
-    buttonPressed(btnHit);
-})
 
 document.addEventListener("keydown", (event => {
     let keyPressed = event.key;
 
     if(keyPressed == 1){
         btnHit = 1;
-        buttonPressed(btnHit);
+        btn1.setAttribute("class", "pressed");
     }
     else if(keyPressed == 2){
         btnHit = 2;
-        buttonPressed(btnHit);
+        btn2.setAttribute("class", "pressed");
     }
     else if(keyPressed == 3){
         btnHit = 3;
-        buttonPressed(btnHit);
+        btn3.setAttribute("class", "pressed");
     }
     else if(keyPressed == 4){
         btnHit = 4;
-        buttonPressed(btnHit);
+        btn4.setAttribute("class", "pressed");
     }
     else {
         return;
@@ -63,30 +44,6 @@ document.addEventListener("keyup", (event => {
     btn3.removeAttribute("class", "pressed")
     btn4.removeAttribute("class", "pressed")
 }))
-
-document.addEventListener("mouseup", (event => {
-    btn1.removeAttribute("class", "pressed")
-    btn2.removeAttribute("class", "pressed")
-    btn3.removeAttribute("class", "pressed")
-    btn4.removeAttribute("class", "pressed")
-}))
-
-function buttonPressed(btnHit){
-     
-    if(btnHit == 1){
-        btn1.setAttribute("class", "pressed");
-    }
-    else if(btnHit == 2){
-        btn2.setAttribute("class", "pressed")
-    }
-    else if(btnHit == 3){
-        btn3.setAttribute("class", "pressed")
-    }
-    else{
-        btn4.setAttribute("class", "pressed")
-    }
-    return;
-}
 
 // create different color notes and remove after timeout
 function greenNote(){
@@ -169,28 +126,24 @@ function pickNote() {
 }
 
 function checkHit(note){
-
+ 
     let checkNotePosition = setInterval(function(){
         var noteXY = note.getBoundingClientRect();
         noteTop = noteXY.top;
 
         if (btnHit == 1 && noteTop >= 540){
-            console.log(noteTop)
             score = score + 10;
             displayScore();
         }
         else if (btnHit == 2 && noteTop >= 540){
-            console.log(noteTop)
             score = score + 10;
             displayScore();
         }
         else if (btnHit == 3 && noteTop >= 540){
-            console.log(noteTop)
             score = score + 10;
             displayScore();
         }
         else if (btnHit == 4 && noteTop >= 540){
-            console.log(noteTop)
             score = score + 10;
             displayScore();
         }
@@ -220,7 +173,6 @@ function init(){
         displayScore();
         pickNote();
     })
-
 }
 
 init();
