@@ -3,13 +3,13 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
+const scoreEl = document.getElementById("score");
 const note = '';
 
 let btnXY = btn1.getBoundingClientRect();
 let allNotes = [];
-let noteInterval = 0;
 let btnHit = 0;
-
+let score = 0;
 
 // event listeners for click and keypress so player can use either controls
 btn1.addEventListener("mousedown", (event)=> {
@@ -197,38 +197,48 @@ function pickNote() {
 }
 
 function checkHit(noteTop){
+    let lastNote = allNotes[allNotes.length - 1];
 
-    if (btnHit == 1 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+    if (btnHit == 1 && noteTop >= 540 && btnHit == lastNote){
         console.log("Green hit")
-        noteInterval++;
+        score = score + 10;
         btnHit = 0;
+        displayScore();
     }
-    else if (btnHit == 2 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+    else if (btnHit == 2 && noteTop >= 540 && btnHit == lastNote){
         console.log("Red hit")
-        noteInterval++;
+        score = score + 10;
         btnHit = 0;
+        displayScore();
     }
-    else if (btnHit == 3 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+    else if (btnHit == 3 && noteTop >= 540 && btnHit == lastNote){
         console.log("Yellow hit")
-        noteInterval++;
+        score = score + 10;
         btnHit = 0;
+        displayScore();
     }
-    else if (btnHit == 4 && noteTop >= 550 && btnHit == allNotes[noteInterval]){
+    else if (btnHit == 4 && noteTop >= 540 && btnHit == lastNote){
         console.log("Blue hit")
-        noteInterval++;
+        score = score + 10;
         btnHit = 0;
+        displayScore();
     }
     else if (btnHit != 0){1
         console.log("missed")
+        score = score - 5;
         btnHit = 0;
+        displayScore();
     }
     else{
-        return;
+        return btnHit = 0;
     }
-
 }
 
+function displayScore(){
+    return scoreEl.textContent = "Score: " + score;
+}
 
+displayScore();
 pickNote();
 
 
