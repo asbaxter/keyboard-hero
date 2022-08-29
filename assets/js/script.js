@@ -200,31 +200,26 @@ function checkHit(noteTop){
     let lastNote = allNotes[allNotes.length - 1];
 
     if (btnHit == 1 && noteTop >= 540 && btnHit == lastNote){
-        console.log("Green hit")
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
     else if (btnHit == 2 && noteTop >= 540 && btnHit == lastNote){
-        console.log("Red hit")
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
     else if (btnHit == 3 && noteTop >= 540 && btnHit == lastNote){
-        console.log("Yellow hit")
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
     else if (btnHit == 4 && noteTop >= 540 && btnHit == lastNote){
-        console.log("Blue hit")
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
     else if (btnHit != 0){1
-        console.log("missed")
         score = score - 5;
         btnHit = 0;
         displayScore();

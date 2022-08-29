@@ -67,7 +67,7 @@ button{
     width: 75px;
     background-color: lightgreen;
     border-radius: 50%;
-    animation: note 2s;
+    animation: note 1.5s linear;
 }
 #redNote{
     border: black solid 3px;
@@ -77,7 +77,7 @@ button{
     width: 75px;
     background-color: pink;
     border-radius: 50%;
-    animation: note 2s;
+    animation: note 1.5s linear;
 }
 #yellowNote{
     border: black solid 3px;
@@ -87,7 +87,7 @@ button{
     width: 75px;
     background-color: lightyellow;
     border-radius: 50%;
-    animation: note 2s;
+    animation: note 1.5s linear;
 }
 #blueNote{
     border: black solid 3px;
@@ -97,7 +97,7 @@ button{
     width: 75px;
     background-color: lightblue;
     border-radius: 50%;
-    animation: note 2s;
+    animation: note 1.5s linear;
 }
 
 /** ------------------ Notes Animations --------------------- **/
