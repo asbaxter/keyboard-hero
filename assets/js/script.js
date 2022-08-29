@@ -4,9 +4,9 @@ const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 const scoreEl = document.getElementById("score");
+
 const missNote = document.getElementById("missNote");
 const penguinTrack = document.getElementById("penguinTrack");
-const note = '';
 
 let btnXY = btn1.getBoundingClientRect();
 let btnHit = 0;
@@ -195,31 +195,32 @@ function pickNote() {
 
 function checkHit(noteTop){
 
-    if (btnHit == 1 && noteTop >= 300){
+    if (btnHit == 1 && noteTop >= 540){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 2 && noteTop >= 300){
+    else if (btnHit == 2 && noteTop >= 540){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 3 && noteTop >= 300){
+    else if (btnHit == 3 && noteTop >= 540){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit == 4 && noteTop >= 300){
+    else if (btnHit == 4 && noteTop >= 540){
         score = score + 10;
         btnHit = 0;
         displayScore();
     }
-    else if (btnHit != 0){1
+    else if (btnHit != 0){
+        console.log(noteTop);
+        console.log(btnHit);
         score = score - 5;
         btnHit = 0;
         missNote.play();
-        console.log(noteTop);
         displayScore();
     }
     else{
