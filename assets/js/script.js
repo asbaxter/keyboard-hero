@@ -120,7 +120,6 @@ function pickNote() {
             blueNote();
             loop();
         }
-1
     }, 475);
 }());
 }
